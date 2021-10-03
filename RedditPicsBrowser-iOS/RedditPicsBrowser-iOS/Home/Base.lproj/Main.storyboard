@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="RedditPicsBrowser_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ks-3q-hh7">
+                                <rect key="frame" x="0.0" y="4" width="414" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pics Browser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDF-UP-MNO">
+                                        <rect key="frame" x="112" y="43.5" width="190.5" height="40.5"/>
+                                        <fontDescription key="fontDescription" name="NotoSansKannada-Bold" family="Noto Sans Kannada" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="Search by title" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-wR-9is">
+                                        <rect key="frame" x="5" y="89" width="404" height="51"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="4fq-Hk-w6x"/>
+                                        </connections>
+                                    </searchBar>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ja9-A8-sNy">
+                                        <rect key="frame" x="131.5" y="161" width="151" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <segments>
+                                            <segment title="Feed"/>
+                                            <segment title="Favorites"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ja9-A8-sNy" firstAttribute="centerX" secondItem="5ks-3q-hh7" secondAttribute="centerX" id="A0n-4j-aTR"/>
+                                    <constraint firstItem="fDF-UP-MNO" firstAttribute="centerX" secondItem="5ks-3q-hh7" secondAttribute="centerX" id="SpJ-1o-Jfy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rd6-wR-9is" secondAttribute="trailing" constant="5" id="Wcw-Vv-bXn"/>
+                                    <constraint firstItem="Rd6-wR-9is" firstAttribute="top" secondItem="fDF-UP-MNO" secondAttribute="bottom" constant="5" id="XjE-H3-0jC"/>
+                                    <constraint firstItem="Ja9-A8-sNy" firstAttribute="top" secondItem="Rd6-wR-9is" secondAttribute="bottom" constant="21" id="Z1G-m0-NcI"/>
+                                    <constraint firstItem="Rd6-wR-9is" firstAttribute="leading" secondItem="5ks-3q-hh7" secondAttribute="leading" constant="5" id="esw-BL-DRL"/>
+                                    <constraint firstAttribute="height" constant="200" id="fLz-69-I0f"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ja9-A8-sNy" secondAttribute="bottom" constant="8" id="ghd-2z-K61"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0y-df-3wU">
+                                <rect key="frame" x="115" y="439.5" width="184" height="27"/>
+                                <fontDescription key="fontDescription" name="NotoSansKannada-Bold" family="Noto Sans Kannada" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-jp-eBh">
+                                <rect key="frame" x="5" y="209" width="404" height="653"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomePageListCell" rowHeight="155" id="mTx-NZ-DkX" customClass="HomePageListCell" customModule="RedditPicsBrowser_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="404" height="155"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mTx-NZ-DkX" id="e1E-sJ-8uR">
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuN-Uh-ApE">
+                                                    <rect key="frame" x="5" y="5" width="394" height="145"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7RI-Fs-twD">
+                                                            <rect key="frame" x="5" y="5" width="140" height="135"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="140" id="xxq-3X-48u"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="d89-jF-SGp">
+                                                            <rect key="frame" x="155" y="5" width="234" height="135"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unadoptable&quot; dog is rescued and now visits foster children as therapy dog" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-Ae-2qP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="116.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="lT8-cb-w1k"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="NotoSansKannada-Bold" family="Noto Sans Kannada" pointSize="19"/>
+                                                                    <color key="textColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unadoptable&quot; dog is rescued and now visits foster children as therapy dog" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDv-5F-lie">
+                                                                    <rect key="frame" x="0.0" y="116.5" width="234" height="18.5"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="12"/>
+                                                                    <color key="textColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="7RI-Fs-twD" secondAttribute="bottom" constant="5" id="EQj-4h-d18"/>
+                                                        <constraint firstAttribute="bottom" secondItem="d89-jF-SGp" secondAttribute="bottom" constant="5" id="Krc-Mo-WKO"/>
+                                                        <constraint firstItem="d89-jF-SGp" firstAttribute="top" secondItem="xuN-Uh-ApE" secondAttribute="top" constant="5" id="maw-7W-buJ"/>
+                                                        <constraint firstItem="7RI-Fs-twD" firstAttribute="top" secondItem="xuN-Uh-ApE" secondAttribute="top" constant="5" id="pZY-er-lsZ"/>
+                                                        <constraint firstItem="d89-jF-SGp" firstAttribute="leading" secondItem="7RI-Fs-twD" secondAttribute="trailing" constant="10" id="tlr-UI-eGr"/>
+                                                        <constraint firstItem="7RI-Fs-twD" firstAttribute="leading" secondItem="xuN-Uh-ApE" secondAttribute="leading" constant="5" id="yYY-7Q-ozw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="d89-jF-SGp" secondAttribute="trailing" constant="5" id="ynO-oV-YQ4"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="xuN-Uh-ApE" firstAttribute="leading" secondItem="e1E-sJ-8uR" secondAttribute="leading" constant="5" id="2GK-9g-Pdj"/>
+                                                <constraint firstAttribute="trailing" secondItem="xuN-Uh-ApE" secondAttribute="trailing" constant="5" id="NSX-NZ-VBU"/>
+                                                <constraint firstItem="xuN-Uh-ApE" firstAttribute="top" secondItem="e1E-sJ-8uR" secondAttribute="top" constant="5" id="pbn-aG-mNe"/>
+                                                <constraint firstAttribute="bottom" secondItem="xuN-Uh-ApE" secondAttribute="bottom" constant="5" id="y39-dL-MSR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="thumbnailImageView" destination="7RI-Fs-twD" id="O8m-v2-B17"/>
+                                            <outlet property="timestampLabel" destination="yDv-5F-lie" id="nQQ-g0-24Z"/>
+                                            <outlet property="titleLabel" destination="9jX-Ae-2qP" id="Pbu-8l-KxC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fVX-pU-xm6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="JWr-BM-p7q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5ks-3q-hh7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5UX-Zv-yqh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ks-3q-hh7" secondAttribute="trailing" id="5tW-RF-o2N"/>
+                            <constraint firstItem="tAX-jp-eBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="KAd-7P-eDy"/>
+                            <constraint firstItem="m0y-df-3wU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Y9Y-eP-BD6"/>
+                            <constraint firstItem="m0y-df-3wU" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eLe-HO-Uvn"/>
+                            <constraint firstItem="5ks-3q-hh7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-40" id="k3q-xw-QuU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAX-jp-eBh" secondAttribute="trailing" constant="5" id="pbG-ep-fSf"/>
+                            <constraint firstItem="tAX-jp-eBh" firstAttribute="top" secondItem="5ks-3q-hh7" secondAttribute="bottom" constant="5" id="r2i-0k-5iE"/>
+                            <constraint firstItem="tAX-jp-eBh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uVd-dk-L2d"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="homepageTableView" destination="tAX-jp-eBh" id="PPs-fe-vpL"/>
+                        <outlet property="noItemsErroLabel" destination="m0y-df-3wU" id="aAX-ZW-ZZA"/>
+                        <outlet property="searchbar" destination="Rd6-wR-9is" id="3jH-vx-oYW"/>
+                        <outlet property="segmentedControl" destination="Ja9-A8-sNy" id="xqk-iY-GuX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233.33333333333334" y="55.580357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
