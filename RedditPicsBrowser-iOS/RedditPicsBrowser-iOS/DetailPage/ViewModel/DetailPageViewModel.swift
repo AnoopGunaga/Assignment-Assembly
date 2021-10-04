@@ -23,7 +23,7 @@ class DetailPageViewModel {
     }
     
     var author: String {
-        return pictures.imageInfo?.author ?? ""
+        return pictures.imageInfo?.postedBy ?? ""
     }
     
     var timeStamp: String {

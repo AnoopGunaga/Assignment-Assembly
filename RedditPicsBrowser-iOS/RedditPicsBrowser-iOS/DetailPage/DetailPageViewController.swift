@@ -80,6 +80,7 @@ class DetailPageViewController: BaseViewController {
             from: viewModel.photoUrl,
             shouldShowProgressView: true)
         titleLabel.text = viewModel.title
+        authorLabel.text = viewModel.author
         categoryLabel.text = viewModel.contentCategory
         timeStampLabel.text = viewModel.timeStamp
     }

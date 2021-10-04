@@ -279,18 +279,10 @@
 			children = (
 				CFE5816F2708682400CCC18B /* Utilities */,
 				CF8A7F6B2708365F00588D94 /* ViewModel */,
-				CF8A7F682708359200588D94 /* Views */,
 				CF8A7F642708313200588D94 /* Detail.storyboard */,
 				CF8A7F662708314B00588D94 /* DetailPageViewController.swift */,
 			);
 			path = DetailPage;
-			sourceTree = "<group>";
-		};
-		CF8A7F682708359200588D94 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		CF8A7F6B2708365F00588D94 /* ViewModel */ = {

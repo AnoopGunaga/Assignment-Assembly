@@ -79,10 +79,14 @@ class ImageInfo: Codable {
         return ""
     }
     
+    var postedBy: String {
+        return "Posted by: " + (author ?? "")
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case imageId = "id"
         case thumbnail = "thumbnail"
-        case author = "author_fullname"
+        case author = "author"
         case title = "title"
         case created = "created"
         case photoUrl = "url_overridden_by_dest"
