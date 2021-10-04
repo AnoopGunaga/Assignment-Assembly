@@ -5,8 +5,10 @@ Repository to save assignment project
 # Installation instructions
 
 1. Clone the assignment repository using 
-ssh: git clone git@github.com:AnoopGunaga/Assignment-Assembly.git
-https: https://github.com/AnoopGunaga/Assignment-Assembly.git
+
+ssh: 'git clone git@github.com:AnoopGunaga/Assignment-Assembly.git'
+
+https: 'https://github.com/AnoopGunaga/Assignment-Assembly.git'
 
 2. Navigate to 'Assignment-Assembly/RedditPicsBrowser-iOS' folder
 
@@ -27,8 +29,12 @@ Cocoapods installation guide: https://guides.cocoapods.org/using/getting-started
 - On Tapping of any item user navigated to full screen view/ detail view of the post.
 
 ## Detail screen
-- In detail page user can mark the photo as favorite. 
+- In detail page user can view the details about the photo and mark the photo as favorite. 
 
    
+## Development tools and version info
 
+XCode : XCode 13
+
+Deployment target:  iOS 11 and above
 
