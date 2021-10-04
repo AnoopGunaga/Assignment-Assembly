@@ -33,8 +33,8 @@ class FavoriteManagerTests: XCTestCase {
 
     func testAddToFavorites() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics)
+        let redditPics = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        FavoriteManager.shared.addToFavorites(picture: redditPics)
         
         let favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 1)
@@ -42,10 +42,10 @@ class FavoriteManagerTests: XCTestCase {
     
     func testAddToFavoritesDuplicates() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        let redditPics2 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title 2", created: 987654, photoUrl: "", categories: nil))
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics1)
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics2)
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics2 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title 2", created: 987654, photoUrl: "", categories: nil))
+        FavoriteManager.shared.addToFavorites(picture: redditPics1)
+        FavoriteManager.shared.addToFavorites(picture: redditPics2)
         
         let favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 1)
@@ -53,10 +53,10 @@ class FavoriteManagerTests: XCTestCase {
     
     func testGetFavorites() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        let redditPics2 = RedditPics(imageInfo: ImageInfo(imageId: "2345", thumbnail: "", author: "", title: "new title 2", created: 987654, photoUrl: "", categories: nil))
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics1)
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics2)
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics2 = RedditPicture(imageInfo: PictutreInfo(imageId: "2345", thumbnail: "", author: "", title: "new title 2", created: 987654, photoUrl: "", categories: nil))
+        FavoriteManager.shared.addToFavorites(picture: redditPics1)
+        FavoriteManager.shared.addToFavorites(picture: redditPics2)
         
         let favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 2)
@@ -64,38 +64,38 @@ class FavoriteManagerTests: XCTestCase {
     
     func testRemoveFromFavorites() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics)
+        let redditPics = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        FavoriteManager.shared.addToFavorites(picture: redditPics)
         
         var favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 1, "Favorite not added")
         
-        FavoriteManager.shared.removeFromFavrite(imageInfo: redditPics)
+        FavoriteManager.shared.removeFromFavrite(picture: redditPics)
         favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 0, "Favorite not deleted")
     }
     
     func testRemoveNonExistingItemFromFavorites() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        let redditPics2 = RedditPics(imageInfo: ImageInfo(imageId: "6789", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics2 = RedditPicture(imageInfo: PictutreInfo(imageId: "6789", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
 
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics1)
+        FavoriteManager.shared.addToFavorites(picture: redditPics1)
         
         let favorites = FavoriteManager.shared.getFavorites()
         XCTAssertEqual(favorites?.count, 1, "Favorite not added")
         
-        FavoriteManager.shared.removeFromFavrite(imageInfo: redditPics2)
+        FavoriteManager.shared.removeFromFavrite(picture: redditPics2)
         XCTAssertEqual(favorites?.count, 1, "Favorite not deleted")
     }
     
     func testClearAllFavorites() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
-        let redditPics2 = RedditPics(imageInfo: ImageInfo(imageId: "6789", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics2 = RedditPicture(imageInfo: PictutreInfo(imageId: "6789", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
 
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics1)
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics2)
+        FavoriteManager.shared.addToFavorites(picture: redditPics1)
+        FavoriteManager.shared.addToFavorites(picture: redditPics2)
 
         FavoriteManager.shared.clearAllFavorites()
         let favorites = FavoriteManager.shared.getFavorites()
@@ -104,9 +104,9 @@ class FavoriteManagerTests: XCTestCase {
     
     func testisFavoritePositiveCase() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
 
-        FavoriteManager.shared.addToFavorites(imageInfo: redditPics1)
+        FavoriteManager.shared.addToFavorites(picture: redditPics1)
 
         let isFavorite = FavoriteManager.shared.isFavorite(imageInfo: redditPics1)
         XCTAssertTrue(isFavorite)
@@ -114,7 +114,7 @@ class FavoriteManagerTests: XCTestCase {
     
     func testisFavoriteNegativeCase() {
         FavoriteManager.shared.clearAllFavorites()
-        let redditPics1 = RedditPics(imageInfo: ImageInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
+        let redditPics1 = RedditPicture(imageInfo: PictutreInfo(imageId: "1234", thumbnail: "", author: "", title: "new title", created: 1234567, photoUrl: "", categories: nil))
 
         let isFavorite = FavoriteManager.shared.isFavorite(imageInfo: redditPics1)
         XCTAssertFalse(isFavorite)

@@ -17,26 +17,26 @@ class RedditPicsModel: Codable {
 }
 
 class Payload: Codable {
-    let pictures: [RedditPics]?
+    let pictures: [RedditPicture]?
     
     private enum CodingKeys: String, CodingKey {
         case pictures = "children"
     }
 }
 
-class RedditPics: Codable {
-    let imageInfo: ImageInfo?
+class RedditPicture: Codable {
+    let pictureInfo: PictutreInfo?
     
     private enum CodingKeys: String, CodingKey {
-        case imageInfo = "data"
+        case pictureInfo = "data"
     }
     
-    init(imageInfo: ImageInfo? = nil) {
-        self.imageInfo = imageInfo
+    init(imageInfo: PictutreInfo? = nil) {
+        self.pictureInfo = imageInfo
     }
 }
 
-class ImageInfo: Codable {
+class PictutreInfo: Codable {
     let imageId: String?
     let thumbnail: String?
     let author: String?

@@ -14,44 +14,44 @@ class FavoriteManager {
     private init() {}
     
 
-    func addToFavorites(imageInfo: RedditPics) {
-        if !isFavorite(imageInfo: imageInfo) {
-            var favorites: [RedditPics] = getFavorites() ?? []
-            favorites.append(imageInfo)
+    func addToFavorites(picture: RedditPicture) {
+        if !isFavorite(imageInfo: picture) {
+            var favorites: [RedditPicture] = getFavorites() ?? []
+            favorites.append(picture)
             writeToFile(favorites: favorites)
         }
     }
     
-    func removeFromFavrite(imageInfo: RedditPics) {
-        var favorites: [RedditPics] = getFavorites() ?? []
+    func removeFromFavrite(picture: RedditPicture) {
+        var favorites: [RedditPicture] = getFavorites() ?? []
         
         if let index = favorites.firstIndex(
-            where: { $0.imageInfo?.imageId ==  imageInfo.imageInfo?.imageId }) {
+            where: { $0.pictureInfo?.imageId ==  picture.pictureInfo?.imageId }) {
             favorites.remove(at: index)
         }
         writeToFile(favorites: favorites)
     }
     
     func clearAllFavorites() {
-        let favorites: [RedditPics] = []
+        let favorites: [RedditPicture] = []
         writeToFile(favorites: favorites)
     }
     
-    func isFavorite(imageInfo: RedditPics) -> Bool {
-        let favorites: [RedditPics] = getFavorites() ?? []
+    func isFavorite(imageInfo: RedditPicture) -> Bool {
+        let favorites: [RedditPicture] = getFavorites() ?? []
         let filteredObjs = favorites.filter({
-            $0.imageInfo?.imageId == imageInfo.imageInfo?.imageId
+            $0.pictureInfo?.imageId == imageInfo.pictureInfo?.imageId
         })
         return !filteredObjs.isEmpty
     }
         
-    func getFavorites() -> [RedditPics]? {
+    func getFavorites() -> [RedditPicture]? {
         guard let url = fileUrl else { return nil }
         let path = url.appendingPathComponent(favoritesFileName)
 
         do {
             let jsonData = try Data(contentsOf: path)
-            let redditPicsInfo = try JSONDecoder().decode([RedditPics].self, from: jsonData)
+            let redditPicsInfo = try JSONDecoder().decode([RedditPicture].self, from: jsonData)
             return redditPicsInfo
         } catch let error {
             debugPrint(error.localizedDescription)
@@ -59,7 +59,7 @@ class FavoriteManager {
         return nil
     }
         
-    private func writeToFile(favorites: [RedditPics]) {
+    private func writeToFile(favorites: [RedditPicture]) {
         guard let url = fileUrl else { return }
         let path = url.appendingPathComponent(favoritesFileName)
         

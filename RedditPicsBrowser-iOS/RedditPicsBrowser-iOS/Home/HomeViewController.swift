@@ -130,7 +130,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomePageListCell") as? HomePageListCell else { return UITableViewCell() }
         
-        guard let item = viewModel.item(atindex: indexPath.row).imageInfo else { return UITableViewCell() }
+        guard let item = viewModel.item(atindex: indexPath.row).pictureInfo else { return UITableViewCell() }
         cell.configure(
             thumbnail: item.thumbnail ?? "",
             title: item.title ?? "",
@@ -140,9 +140,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedImage = viewModel.item(atindex: indexPath.row)
-        guard let detailPageController = DetailPageViewController.create(
-            selectedImage: selectedImage,
-            isFavorite: false) else { return }
+        guard let detailPageController = DetailPageViewController.create(selectedImage: selectedImage) else { return }
         
         navigationController?.pushViewController(
             detailPageController,

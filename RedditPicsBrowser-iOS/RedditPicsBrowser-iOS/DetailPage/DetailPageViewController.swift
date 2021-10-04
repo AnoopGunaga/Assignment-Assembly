@@ -23,14 +23,11 @@ class DetailPageViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     private var viewModel: DetailPageViewModel!
-    static func create(selectedImage: RedditPics,
-                       isFavorite: Bool) -> DetailPageViewController? {
+    static func create(selectedImage: RedditPicture) -> DetailPageViewController? {
         guard let detailPage = UIStoryboard.controller(
                 ofTpe: DetailPageViewController.type,
                 storyboard: .detail) as? DetailPageViewController else { return nil }
-        detailPage.viewModel = DetailPageViewModel(
-            image: selectedImage,
-            isFavorite: false)
+        detailPage.viewModel = DetailPageViewModel(image: selectedImage)
 
         return detailPage
     }

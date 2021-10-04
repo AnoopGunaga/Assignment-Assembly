@@ -29,8 +29,8 @@ enum HomeSegment: Int {
 class HomeViewModel {
     private let disposeBag = DisposeBag()
     
-    private var redditImages: [RedditPics] = []
-    private var filteredReddtImages: [RedditPics] = []
+    private var redditImages: [RedditPicture] = []
+    private var filteredReddtImages: [RedditPicture] = []
     
     weak var delegate: FilterResultProtocol?
     var filterText: PublishRelay<String> = PublishRelay<String>()
@@ -70,7 +70,7 @@ class HomeViewModel {
         return filteredReddtImages.count
     }
     
-    func item(atindex index: Int) -> RedditPics {
+    func item(atindex index: Int) -> RedditPicture {
         let imagedata = filteredReddtImages[index]
         return imagedata
     }
@@ -102,7 +102,7 @@ class HomeViewModel {
             }
         } else {
             filteredReddtImages = redditImages.filter {
-                ($0.imageInfo?.title?.contains(searchText)) ?? false
+                ($0.pictureInfo?.title?.contains(searchText)) ?? false
             }
         }
         delegate?.refreshFilteredFeed()

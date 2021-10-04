@@ -8,41 +8,40 @@
 import Foundation
 
 class DetailPageViewModel {
-    private var pictures: RedditPics
+    private var pictures: RedditPicture
     var isFavorite: Bool {
         return FavoriteManager.shared.isFavorite(imageInfo: pictures)
     }
     
-    init(image: RedditPics,
-         isFavorite: Bool) {
+    init(image: RedditPicture) {
         pictures = image
     }
     
     var title: String {
-        return pictures.imageInfo?.title ?? ""
+        return pictures.pictureInfo?.title ?? ""
     }
     
     var author: String {
-        return pictures.imageInfo?.postedBy ?? ""
+        return pictures.pictureInfo?.postedBy ?? ""
     }
     
     var timeStamp: String {
-        return pictures.imageInfo?.timestamp ?? ""
+        return pictures.pictureInfo?.timestamp ?? ""
     }
     
     var contentCategory: String {
-        return pictures.imageInfo?.contentCategory ?? ""
+        return pictures.pictureInfo?.contentCategory ?? ""
     }
     
     var photoUrl: String {
-        return pictures.imageInfo?.photoUrl ?? ""
+        return pictures.pictureInfo?.photoUrl ?? ""
     }
     
     func addToFavorite() {
-        FavoriteManager.shared.addToFavorites(imageInfo: pictures)
+        FavoriteManager.shared.addToFavorites(picture: pictures)
     }
     
     func removeFromFavorites() {
-        FavoriteManager.shared.removeFromFavrite(imageInfo: pictures)
+        FavoriteManager.shared.removeFromFavrite(picture: pictures)
     }
 }

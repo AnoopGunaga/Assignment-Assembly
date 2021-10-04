@@ -31,7 +31,7 @@ class RedditPicsModelTests: XCTestCase {
     }
 
     func testTimeStamp() {
-        let imageInfo = ImageInfo(created: 0.0)
+        let imageInfo = PictutreInfo(created: 0.0)
         
         let publishedDate = Date(timeIntervalSince1970:0.0)
         let dateFormatter = DateFormatter()
@@ -44,7 +44,7 @@ class RedditPicsModelTests: XCTestCase {
     }
     
     func testTimeStampForInvalidInput() {
-        let imageInfo = ImageInfo(created: 1630020346.0)
+        let imageInfo = PictutreInfo(created: 1630020346.0)
         
         let publishedDate = Date(timeIntervalSince1970:1630020346.0)
         let dateFormatter = DateFormatter()
@@ -57,14 +57,14 @@ class RedditPicsModelTests: XCTestCase {
     }
     
     func testContentCategory() {
-        let imageInfo = ImageInfo(categories: ["photography"])
+        let imageInfo = PictutreInfo(categories: ["photography"])
         let contentCategory = imageInfo.contentCategory
         
         XCTAssertEqual(contentCategory, "photography")
     }
     
     func testContentCategoryForInValidInput() {
-        let imageInfo = ImageInfo(categories: nil)
+        let imageInfo = PictutreInfo(categories: nil)
         let contentCategory = imageInfo.contentCategory
         
         XCTAssertEqual(contentCategory, "")
