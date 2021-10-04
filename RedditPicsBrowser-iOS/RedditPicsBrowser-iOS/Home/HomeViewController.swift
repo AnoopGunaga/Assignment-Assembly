@@ -13,6 +13,8 @@ import ProgressHUD
 class HomeViewController: BaseViewController, UIGestureRecognizerDelegate {
     private let disposeBag = DisposeBag()
     private var isSearchInProgress = false
+    private let pageTitle = "Pics Browser"
+
     var viewModel: HomeViewModel!
     
     @IBOutlet private weak var noItemsErroLabel: UILabel!
@@ -34,7 +36,8 @@ class HomeViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     private func setup() {
-        configureNavigationBar(shouldHide: true)
+        self.title = pageTitle
+
         configureGesture()
         segmentedControl.setTitleTextAttributes(
             [NSAttributedString.Key.foregroundColor: UIColor.redditThemeColor],
@@ -48,6 +51,11 @@ class HomeViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        configureNavigationBar(
+            shouldHide: false,
+            tintColor: .white,
+            titleTextColor: .white)
     }
     
     private func configureGesture() {

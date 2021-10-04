@@ -21,12 +21,13 @@ class BaseViewController: UIViewController {
         shouldHide: Bool,
         tintColor: UIColor = .redditThemeColor,
         titleTextColor: UIColor = .white) {
+            clearNavigationBar()
             navigationController?.navigationBar.isHidden = shouldHide
             navigationController?.navigationBar.tintColor = tintColor
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : tintColor]
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : titleTextColor]
         }
     
-    func clearNavigationBar() {
+    private func clearNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
     

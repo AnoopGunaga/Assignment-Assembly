@@ -18,23 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ks-3q-hh7">
-                                <rect key="frame" x="0.0" y="4" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pics Browser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDF-UP-MNO">
-                                        <rect key="frame" x="112" y="43.5" width="190.5" height="40.5"/>
-                                        <fontDescription key="fontDescription" name="NotoSansKannada-Bold" family="Noto Sans Kannada" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="Search by title" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-wR-9is">
-                                        <rect key="frame" x="5" y="89" width="404" height="51"/>
+                                        <rect key="frame" x="5" y="5" width="404" height="51"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="4fq-Hk-w6x"/>
                                         </connections>
                                     </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ja9-A8-sNy">
-                                        <rect key="frame" x="131.5" y="161" width="151" height="32"/>
+                                        <rect key="frame" x="131.5" y="77" width="151" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
                                             <segment title="Feed"/>
@@ -47,13 +41,11 @@
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.3294117647" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Ja9-A8-sNy" firstAttribute="centerX" secondItem="5ks-3q-hh7" secondAttribute="centerX" id="A0n-4j-aTR"/>
-                                    <constraint firstItem="fDF-UP-MNO" firstAttribute="centerX" secondItem="5ks-3q-hh7" secondAttribute="centerX" id="SpJ-1o-Jfy"/>
+                                    <constraint firstItem="Rd6-wR-9is" firstAttribute="top" secondItem="5ks-3q-hh7" secondAttribute="top" constant="5" id="Iob-4q-62Y"/>
                                     <constraint firstAttribute="trailing" secondItem="Rd6-wR-9is" secondAttribute="trailing" constant="5" id="Wcw-Vv-bXn"/>
-                                    <constraint firstItem="Rd6-wR-9is" firstAttribute="top" secondItem="fDF-UP-MNO" secondAttribute="bottom" constant="5" id="XjE-H3-0jC"/>
                                     <constraint firstItem="Ja9-A8-sNy" firstAttribute="top" secondItem="Rd6-wR-9is" secondAttribute="bottom" constant="21" id="Z1G-m0-NcI"/>
                                     <constraint firstItem="Rd6-wR-9is" firstAttribute="leading" secondItem="5ks-3q-hh7" secondAttribute="leading" constant="5" id="esw-BL-DRL"/>
-                                    <constraint firstAttribute="height" constant="200" id="fLz-69-I0f"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ja9-A8-sNy" secondAttribute="bottom" constant="8" id="ghd-2z-K61"/>
+                                    <constraint firstAttribute="height" constant="110" id="fLz-69-I0f"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0y-df-3wU">
@@ -63,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-jp-eBh">
-                                <rect key="frame" x="5" y="209" width="404" height="653"/>
+                                <rect key="frame" x="5" y="159" width="404" height="703"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomePageListCell" rowHeight="155" id="mTx-NZ-DkX" customClass="HomePageListCell" customModule="RedditPicsBrowser_iOS" customModuleProvider="target">
@@ -155,7 +147,7 @@
                             <constraint firstItem="tAX-jp-eBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="KAd-7P-eDy"/>
                             <constraint firstItem="m0y-df-3wU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Y9Y-eP-BD6"/>
                             <constraint firstItem="m0y-df-3wU" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eLe-HO-Uvn"/>
-                            <constraint firstItem="5ks-3q-hh7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-40" id="k3q-xw-QuU"/>
+                            <constraint firstItem="5ks-3q-hh7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="k3q-xw-QuU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAX-jp-eBh" secondAttribute="trailing" constant="5" id="pbG-ep-fSf"/>
                             <constraint firstItem="tAX-jp-eBh" firstAttribute="top" secondItem="5ks-3q-hh7" secondAttribute="bottom" constant="5" id="r2i-0k-5iE"/>
                             <constraint firstItem="tAX-jp-eBh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uVd-dk-L2d"/>
@@ -163,6 +155,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="homepageTableView" destination="tAX-jp-eBh" id="PPs-fe-vpL"/>
                         <outlet property="noItemsErroLabel" destination="m0y-df-3wU" id="aAX-ZW-ZZA"/>

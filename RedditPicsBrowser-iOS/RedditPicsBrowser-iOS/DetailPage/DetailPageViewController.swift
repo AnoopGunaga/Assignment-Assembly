@@ -40,12 +40,16 @@ class DetailPageViewController: BaseViewController {
         setup()
     }
     
-    private func setup() {
-        bind()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureNavigationBar(
             shouldHide: false,
             tintColor: .white,
             titleTextColor: .white)
+    }
+    
+    private func setup() {
+        bind()
         self.title = pageTitle
         addToFavoriteButton.setTitle("", for: .normal)
         
