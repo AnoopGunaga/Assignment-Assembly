@@ -40,11 +40,12 @@ class HomeViewController: BaseViewController, UIGestureRecognizerDelegate {
 
         configureGesture()
         segmentedControl.setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.redditThemeColor],
+            [NSAttributedString.Key.foregroundColor: UIColor.white],
             for: .normal)
         segmentedControl.setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.white],
+            [NSAttributedString.Key.foregroundColor: UIColor.redditThemeColor],
             for: .selected)
+
         bind()
         viewModel.fetchRedditImages()
     }
